@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Join Us</title>
+    <script>
+        function validateForm() {
+            // Get the form element
+            let form = document.getElementById("myForm");
+
+            // Validate the name field
+            let name = form.elements["name"].value;
+            if (name === "") {
+                alert("Please enter your name.");
+                return false;
+            }
+
+            // Validate the email field
+            let email = form.elements["email"].value;
+            let atpos = email.indexOf("@");
+            let dotpos = email.lastIndexOf(".");
+            if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            // Validate the password field
+            let password = form.elements["password"].value;
+            if (password === "") {
+                alert("Please enter a password.");
+                return false;
+            }
+
+            // Validate the confirmation password field
+            let confirmPassword = form.elements["confirmPassword"].value;
+            if (password !== confirmPassword) {
+                alert("The passwords do not match.");
+                return false;
+            }
+
+            // All validations passed
+            return true;
+        }
+
+    </script>
+    <style>
+        /* Styling the form element */
+        #myForm {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            margin: 0 auto;
+            padding: 40px;
+            transform: translate(-50%, -50%);
+            background: #243b55;
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px rgba(0,0,0,.5);
+            border-radius: 10px;
+        }
+
+        /* Styling the input fields */
+        input {
+            width: 100%;
+            padding: 10px 0;
+            font-size: 16px ;
+            color: black;
+            border: none;
+            outline: none;
+            margin-bottom: 30px;
+            border-bottom: black;
+        }
+
+        /* Styling the name field */
+        input[name="name"] {
+            font-size: 16px;
+            text-align:center;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 30px;
+            border: none;
+            border-bottom: 1px solid #fff;
+            outline: none;
+            background: transparent;
+        }
+
+        /* Styling the email field */
+        input[name="email"] {
+            font-size: 16px;
+            text-align:center;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 30px;
+            border: none;
+            border-bottom: 1px solid #fff;
+            outline: none;
+            background: transparent;
+        }
+
+        /* Styling the password fields */
+        input[name="password"],
+        input[name="confirmPassword"] {
+            font-size: 16px;
+            text-align:center;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 30px;
+            border: none;
+            border-bottom: 1px solid #fff;
+            outline: none;
+            background: transparent;
+        }
+
+        /* Styling the submit button */
+        input[type="Submit"] {
+            position: relative;
+            background-color: beige;
+            color: black;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: .5s;
+            overflow: hidden;
+            margin: 0 auto;
+            letter-spacing: 2px;
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px rgba(0,0,0,.5);
+            border-radius: 10px;
+
+        }
+
+    </style>
+</head>
+<body>
+<form id="myForm" onsubmit="return validateForm()">
+    <label>
+        <input type="text" name="name" placeholder="Username">
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <input type="password" name="confirmPassword" placeholder="Confirm Password">
+        <input type="submit" value="SUBMIT">
+    </label>
+</form>
+
+</body>
+</html>
